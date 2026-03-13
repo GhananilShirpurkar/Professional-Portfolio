@@ -181,7 +181,7 @@ const Projects = () => {
         {/* View all projects link */}
         <div className="mt-12 md:mt-16 text-center">
           <a
-            href="https://github.com"
+            href="https://github.com/GhananilShirpurkar"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-[#ffd24a] hover:text-[#ffd24a] transition-all duration-300 group"

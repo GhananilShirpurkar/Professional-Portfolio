@@ -227,7 +227,7 @@ const Hero = () => {
           {/* Subtitle */}
           <p
             ref={subtitleRef}
-            className="text-base md:text-lg lg:text-xl text-[#a0a0a0] max-w-2xl leading-relaxed mb-10 opacity-0 px-4"
+            className="text-base md:text-lg lg:text-xl text-[#a0a0a0] max-w-2xl leading-relaxed mb-10 opacity-0 px-4 whitespace-pre-line"
           >
             {heroConfig.subtitle}
           </p>
