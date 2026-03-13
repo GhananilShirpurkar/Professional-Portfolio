@@ -43,6 +43,21 @@ npm run build
 npm run preview
 ```
 
+## Secure Contact Form (No Public Email)
+
+The contact form now sends through a server-side Vercel API route at `api/contact.ts`, so your inbox address is not exposed in frontend code.
+
+Set these environment variables in Vercel Project Settings:
+
+```bash
+RESEND_API_KEY=...
+CONTACT_TO_EMAIL=you@yourdomain.com
+CONTACT_FROM_EMAIL=onboarding@resend.dev
+CONTACT_SUBJECT_PREFIX=[Portfolio]
+```
+
+For local development, copy `app/.env.example` to `app/.env.local` and fill in values.
+
 ## Configuration
 
 All site content is managed through a single file: `src/config.ts`. Edit only this file to customize the entire site.

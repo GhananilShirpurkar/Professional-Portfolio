@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { projectsConfig } from '../config';
 import { GlowWrapper } from '../components/GlowWrapper';

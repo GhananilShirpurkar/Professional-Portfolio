@@ -26,6 +26,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -89,16 +90,37 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Reset submitted state after 3 seconds
-    setTimeout(() => setSubmitted(false), 3000);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          company: '',
+        }),
+      });
+
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        setSubmitError(result.message || 'Failed to send message. Please try again.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch {
+      setIsSubmitting(false);
+      setSubmitError('Network error. Please try again in a moment.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -143,13 +165,8 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-[#ffd24a]" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#a0a0a0] mb-1">Email</p>
-                  <a 
-                    href={`mailto:${contactConfig.email}`}
-                    className="text-white hover:text-[#ffd24a] transition-colors"
-                  >
-                    {contactConfig.email}
-                  </a>
+                  <p className="text-sm text-[#a0a0a0] mb-1">Private Contact</p>
+                  <p className="text-white">Use the secure form on this page</p>
                 </div>
               </div>
 
@@ -223,6 +240,15 @@ const Contact = () => {
             <p className="text-sm text-[#a0a0a0] mb-8">{contactConfig.formDescription}</p>
 
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <input
+                type="text"
+                name="company"
+                autoComplete="off"
+                tabIndex={-1}
+                aria-hidden="true"
+                className="hidden"
+              />
+
               {/* Name field */}
               <div>
                 <label htmlFor="name" className="block text-sm text-white/80 mb-2">
@@ -298,6 +324,12 @@ const Contact = () => {
                   </>
                 )}
               </button>
+
+              {submitError ? (
+                <p className="text-sm text-red-300 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
+                  {submitError}
+                </p>
+              ) : null}
             </form>
           </div>
         </div>

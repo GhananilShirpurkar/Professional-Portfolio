@@ -211,7 +211,6 @@ export interface ContactConfig {
   sectionLabel: string;
   sectionTitle: string;
   subtitle: string;
-  email: string;
   phone: string;
   location: string;
   socialLinks: SocialLink[];
@@ -224,7 +223,6 @@ export const contactConfig: ContactConfig = {
   sectionLabel: "Contact",
   sectionTitle: "Let's Work Together",
   subtitle: "Have a project in mind? Let's discuss how we can bring your ideas to life.",
-  email: "shirpurkarghananil@gmail.com",
   phone: "",
   location: "Maharashtra, India",
   socialLinks: [

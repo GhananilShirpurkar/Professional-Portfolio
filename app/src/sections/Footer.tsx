@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Github, Linkedin, Twitter, Mail, ArrowUp, Heart } from 'lucide-react';
+import { Github, Linkedin, Twitter, ArrowUp, Heart } from 'lucide-react';
 import { footerConfig } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,13 +94,6 @@ const Footer = () => {
               >
                 <Twitter className="w-4 h-4" />
               </a>
-              <a
-                href="mailto:ghananil.shirpurkar@email.com"
-                className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-[#ffd24a] hover:border-[#ffd24a]/30 transition-all duration-300"
-                aria-label="Email"
-              >
-                <Mail className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -126,12 +119,9 @@ const Footer = () => {
             <h4 className="font-display text-white mb-6">Get in Touch</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="mailto:ghananil.shirpurkar@email.com"
-                  className="text-[#a0a0a0] hover:text-[#ffd24a] transition-colors text-sm"
-                >
-                  ghananil.shirpurkar@email.com
-                </a>
+                <span className="text-[#a0a0a0] text-sm">
+                  Use the secure contact form
+                </span>
               </li>
               <li>
                 <a
