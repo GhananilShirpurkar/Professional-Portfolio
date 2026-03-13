@@ -124,14 +124,6 @@ const Footer = () => {
                 </span>
               </li>
               <li>
-                <a
-                  href="tel:+919876543210"
-                  className="text-[#a0a0a0] hover:text-[#ffd24a] transition-colors text-sm"
-                >
-                  +91 98765 43210
-                </a>
-              </li>
-              <li>
                 <span className="text-[#a0a0a0] text-sm">
                   Mumbai, India
                 </span>
