@@ -41,6 +41,8 @@ const AnimatedCounter = ({ value, suffix = '' }: { value: string; suffix?: strin
   );
 };
 
+import { GlowWrapper } from '../components/GlowWrapper';
+
 const About = () => {
   if (!aboutConfig.bio && aboutConfig.stats.length === 0) {
     return null;
@@ -134,21 +136,23 @@ const About = () => {
           {/* Right side - Stats */}
           <div ref={statsRef} className="grid grid-cols-2 gap-4 md:gap-6">
             {aboutConfig.stats.map((stat) => (
-              <div
-                key={stat.id}
-                className="stat-card relative p-6 md:p-8 bg-[#151515] rounded-2xl border border-white/5 overflow-hidden group"
-              >
-                {/* Hover glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#ffd24a]/10 to-transparent rounded-bl-full" />
-                
-                <div className="relative z-10">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  <p className="mt-3 text-sm md:text-base text-[#a0a0a0]">{stat.label}</p>
+              <GlowWrapper key={stat.id} borderRadius="1rem" className="h-full">
+                <div
+                  data-cursor="hover"
+                  className="stat-card relative p-6 md:p-8 bg-[#151515] rounded-2xl border border-white/5 overflow-hidden group w-full h-full"
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Corner accent */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#ffd24a]/10 to-transparent rounded-bl-full shadow-lg" />
+                  
+                  <div className="relative z-10">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    <p className="mt-3 text-sm md:text-base text-[#a0a0a0]">{stat.label}</p>
+                  </div>
                 </div>
-              </div>
+              </GlowWrapper>
             ))}
           </div>
         </div>

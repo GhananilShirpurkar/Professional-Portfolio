@@ -3,6 +3,7 @@ import './index.css';
 import useLenis from './hooks/useLenis';
 import { siteConfig } from './config';
 import Hero from './sections/Hero';
+import CustomCursor from './components/CustomCursor';
 import About from './sections/About';
 import Projects from './sections/Projects';
 import Skills from './sections/Skills';
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <main className="relative w-full min-h-screen bg-[#0f0f0f] overflow-x-hidden">
+      <CustomCursor />
       {/* Hero Section - Full-screen landing */}
       <Hero />
 

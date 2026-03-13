@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Home, User, Folder, Code, Mail, Download, ArrowRight } from 'lucide-react';
 import { heroConfig } from '../config';
+import RevealText from '../components/RevealText';
 
 const ICON_MAP = {
   home: Home,
@@ -11,7 +12,9 @@ const ICON_MAP = {
   mail: Mail,
 };
 
-const Hero = () => {
+import { GlowWrapper } from '../components/GlowWrapper';
+
+function Hero() {
   if (!heroConfig.decodeText && !heroConfig.brandName && heroConfig.navItems.length === 0) {
     return null;
   }
@@ -162,14 +165,15 @@ const Hero = () => {
           {heroConfig.navItems.map((item) => {
             const IconComponent = ICON_MAP[item.icon];
             return (
-              <button
-                key={item.sectionId}
-                onClick={() => scrollToSection(item.sectionId)}
-                className="flex items-center gap-2 px-4 py-2 text-xs font-mono-custom uppercase tracking-wider text-white/70 hover:text-[#ffd24a] transition-colors rounded-full hover:bg-white/5"
-              >
-                <IconComponent className="w-3.5 h-3.5" />
-                <span>{item.label}</span>
-              </button>
+              <GlowWrapper key={item.sectionId} className="rounded-full">
+                <button
+                  onClick={() => scrollToSection(item.sectionId)}
+                  className="flex items-center gap-2 px-4 py-2 text-xs font-mono-custom uppercase tracking-wider text-white/70 hover:text-[#ffd24a] transition-colors rounded-full hover:bg-white/5"
+                >
+                  <IconComponent className="w-3.5 h-3.5" />
+                  <span>{item.label}</span>
+                </button>
+              </GlowWrapper>
             );
           })}
         </div>
@@ -214,14 +218,22 @@ const Hero = () => {
             {heroConfig.role}
           </p>
 
-          {/* Main title with decode effect */}
+          {/* Main title with decode effect → cursor alias reveal */}
           <h1
             ref={titleRef}
             className="decode-text text-[8vw] md:text-[6vw] lg:text-[5vw] font-bold text-white leading-none tracking-tighter mb-8"
           >
-            <span className={`${isDecoding ? 'text-glow-gold' : ''} transition-all duration-300`}>
-              {displayText}
-            </span>
+            {isDecoding ? (
+              <span className="text-glow-gold transition-all duration-300">
+                {displayText}
+              </span>
+            ) : (
+              <RevealText
+                originalText={TARGET_TEXT}
+                hiddenText="KoaNoir"
+                revealRadius={70}
+              />
+            )}
           </h1>
 
           {/* Subtitle */}
@@ -234,26 +246,32 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 opacity-0">
-            <button
-              onClick={() => scrollToSection(heroConfig.ctaPrimaryTarget)}
-              className="group flex items-center justify-center gap-2 px-8 py-4 bg-[#ffd24a] text-[#0f0f0f] font-display text-sm uppercase tracking-wider rounded-full hover:bg-[#ffe17a] transition-all duration-300 btn-glow"
-            >
-              {heroConfig.ctaPrimary}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={() => window.open('/resume.pdf', '_blank')}
-              className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-[#ffd24a] hover:text-[#ffd24a] transition-all duration-300"
-            >
-              <Download className="w-4 h-4" />
-              {heroConfig.ctaSecondary}
-            </button>
-            <button
-              onClick={() => scrollToSection(heroConfig.ctaTertiaryTarget)}
-              className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-[#ffd24a] hover:text-[#ffd24a] transition-all duration-300"
-            >
-              {heroConfig.ctaTertiary}
-            </button>
+            <GlowWrapper className="rounded-full">
+              <button
+                onClick={() => scrollToSection(heroConfig.ctaPrimaryTarget)}
+                className="group flex items-center justify-center gap-2 px-8 py-4 bg-[#ffd24a] text-[#0f0f0f] font-display text-sm uppercase tracking-wider rounded-full hover:bg-[#ffe17a] transition-all duration-300 btn-glow"
+              >
+                {heroConfig.ctaPrimary}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </GlowWrapper>
+            <GlowWrapper className="rounded-full">
+              <button
+                onClick={() => window.open('/resume.pdf', '_blank')}
+                className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-[#ffd24a] hover:text-[#ffd24a] transition-all duration-300"
+              >
+                <Download className="w-4 h-4" />
+                {heroConfig.ctaSecondary}
+              </button>
+            </GlowWrapper>
+            <GlowWrapper className="rounded-full">
+              <button
+                onClick={() => scrollToSection(heroConfig.ctaTertiaryTarget)}
+                className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-[#ffd24a] hover:text-[#ffd24a] transition-all duration-300"
+              >
+                {heroConfig.ctaTertiary}
+              </button>
+            </GlowWrapper>
           </div>
         </div>
 

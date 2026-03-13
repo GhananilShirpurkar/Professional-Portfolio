@@ -3,8 +3,104 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { projectsConfig } from '../config';
+import { GlowWrapper } from '../components/GlowWrapper';
 
-gsap.registerPlugin(ScrollTrigger);
+const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+  return (
+    <GlowWrapper borderRadius="1rem" className="h-full">
+      <div
+        data-cursor="hover"
+        className={`project-card group relative bg-[#151515] rounded-2xl border border-white/5 overflow-hidden h-full ${
+          index === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+        }`}
+      >
+        {/* Accent border on hover */}
+        <div className="project-border absolute inset-0 rounded-2xl border-2 border-[#ffd24a]/50 opacity-0 transition-opacity duration-300 pointer-events-none" />
+        
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Content */}
+        <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
+          {/* Header */}
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
+                <span className="font-display text-sm text-[#ffd24a]">
+                  {project.title.charAt(0)}
+                </span>
+              </div>
+              {project.featured && (
+                <span className="px-3 py-1 text-xs font-mono-custom uppercase tracking-wider text-[#ffd24a] bg-[#ffd24a]/10 rounded-full border border-[#ffd24a]/20">
+                  Featured
+                </span>
+              )}
+            </div>
+            
+            {/* Action buttons */}
+            <div className="flex items-center gap-2">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-white/60 hover:text-[#ffd24a] transition-colors rounded-lg hover:bg-white/5"
+                aria-label="View on GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-white/60 hover:text-[#ffd24a] transition-colors rounded-lg hover:bg-white/5"
+                  aria-label="View Demo"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              )}
+            </div>
+          </div>
+
+          {/* Title */}
+          <h3 className="font-display text-xl md:text-2xl text-white mb-3 group-hover:text-[#ffd24a] transition-colors">
+            {project.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-[#a0a0a0] text-sm md:text-base leading-relaxed mb-6 flex-grow">
+            {project.description}
+          </p>
+
+          {/* Tech stack */}
+          <div className="flex flex-wrap gap-2">
+            {project.techStack.map((tech: string) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-xs font-mono-custom text-white/70 bg-white/5 rounded-full border border-white/10"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* View project link */}
+          <div className="mt-6 pt-6 border-t border-white/5">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-[#ffd24a] transition-colors group/link"
+            >
+              <span>View Project</span>
+              <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </GlowWrapper>
+  );
+};
 
 const Projects = () => {
   if (!projectsConfig.projects.length) {
@@ -85,96 +181,7 @@ const Projects = () => {
         {/* Projects grid */}
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projectsConfig.projects.map((project, index) => (
-            <div
-              key={project.id}
-              className={`project-card group relative bg-[#151515] rounded-2xl border border-white/5 overflow-hidden ${
-                index === 0 ? 'md:col-span-2 lg:col-span-2' : ''
-              }`}
-            >
-              {/* Accent border on hover */}
-              <div className="project-border absolute inset-0 rounded-2xl border-2 border-[#ffd24a]/50 opacity-0 transition-opacity duration-300 pointer-events-none" />
-              
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              {/* Content */}
-              <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
-                {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-                      <span className="font-display text-sm text-[#ffd24a]">
-                        {project.title.charAt(0)}
-                      </span>
-                    </div>
-                    {project.featured && (
-                      <span className="px-3 py-1 text-xs font-mono-custom uppercase tracking-wider text-[#ffd24a] bg-[#ffd24a]/10 rounded-full border border-[#ffd24a]/20">
-                        Featured
-                      </span>
-                    )}
-                  </div>
-                  
-                  {/* Action buttons */}
-                  <div className="flex items-center gap-2">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 text-white/60 hover:text-[#ffd24a] transition-colors rounded-lg hover:bg-white/5"
-                      aria-label="View on GitHub"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 text-white/60 hover:text-[#ffd24a] transition-colors rounded-lg hover:bg-white/5"
-                        aria-label="View Demo"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-display text-xl md:text-2xl text-white mb-3 group-hover:text-[#ffd24a] transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-[#a0a0a0] text-sm md:text-base leading-relaxed mb-6 flex-grow">
-                  {project.description}
-                </p>
-
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs font-mono-custom text-white/70 bg-white/5 rounded-full border border-white/10"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* View project link */}
-                <div className="mt-6 pt-6 border-t border-white/5">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-[#ffd24a] transition-colors group/link"
-                  >
-                    <span>View Project</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 

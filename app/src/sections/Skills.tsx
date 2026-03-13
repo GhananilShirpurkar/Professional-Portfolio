@@ -13,6 +13,8 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   tool: Wrench,
 };
 
+import { GlowWrapper } from '../components/GlowWrapper';
+
 const Skills = () => {
   if (!skillsConfig.categories.length) {
     return null;
@@ -94,69 +96,77 @@ const Skills = () => {
             const IconComponent = ICON_MAP[category.icon] || Wrench;
             
             return (
-              <div
-                key={category.id}
-                className="skill-category group relative p-6 md:p-8 bg-[#151515] rounded-2xl border border-white/5 overflow-hidden"
-              >
-                {/* Hover gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#ffd24a]/10 to-transparent rounded-bl-full opacity-50 group-hover:opacity-100 transition-opacity" />
-                
-                <div className="relative z-10">
-                  {/* Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-6 h-6 text-[#ffd24a]" />
+              <GlowWrapper key={category.id} borderRadius="1rem" className="h-full">
+                <div
+                  data-cursor="hover"
+                  className="skill-category group relative p-6 md:p-8 bg-[#151515] rounded-2xl border border-white/5 overflow-hidden w-full h-full"
+                >
+                  {/* Hover gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Corner accent */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#ffd24a]/10 to-transparent rounded-bl-full opacity-50 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="relative z-10">
+                    {/* Header */}
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="w-6 h-6 text-[#ffd24a]" />
+                      </div>
+                      <h3 className="font-display text-xl md:text-2xl text-white group-hover:text-[#ffd24a] transition-colors">
+                        {category.title}
+                      </h3>
                     </div>
-                    <h3 className="font-display text-xl md:text-2xl text-white group-hover:text-[#ffd24a] transition-colors">
-                      {category.title}
-                    </h3>
-                  </div>
 
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="skill-tag px-4 py-2 text-sm text-white/80 bg-white/5 rounded-lg border border-white/10 cursor-default"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="skill-tag px-4 py-2 text-sm text-white/80 bg-white/5 rounded-lg border border-white/10 cursor-default"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </GlowWrapper>
             );
           })}
         </div>
 
         {/* Additional info */}
         <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <div className="text-center p-6">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-              <span className="font-display text-2xl text-[#ffd24a]">AI</span>
+          <GlowWrapper borderRadius="1rem">
+            <div className="text-center p-6 w-full h-full" data-cursor="hover">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
+                <span className="font-display text-2xl text-[#ffd24a]">AI</span>
+              </div>
+              <h4 className="font-display text-lg text-white mb-2">Machine Learning</h4>
+              <p className="text-sm text-[#a0a0a0]">Building intelligent systems with modern ML frameworks</p>
             </div>
-            <h4 className="font-display text-lg text-white mb-2">Machine Learning</h4>
-            <p className="text-sm text-[#a0a0a0]">Building intelligent systems with modern ML frameworks</p>
-          </div>
+          </GlowWrapper>
           
-          <div className="text-center p-6">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-              <span className="font-display text-2xl text-[#ffd24a]">API</span>
+          <GlowWrapper borderRadius="1rem">
+            <div className="text-center p-6 w-full h-full" data-cursor="hover">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
+                <span className="font-display text-2xl text-[#ffd24a]">API</span>
+              </div>
+              <h4 className="font-display text-lg text-white mb-2">Backend Systems</h4>
+              <p className="text-sm text-[#a0a0a0]">Scalable APIs and microservices architecture</p>
             </div>
-            <h4 className="font-display text-lg text-white mb-2">Backend Systems</h4>
-            <p className="text-sm text-[#a0a0a0]">Scalable APIs and microservices architecture</p>
-          </div>
+          </GlowWrapper>
           
-          <div className="text-center p-6">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-              <span className="font-display text-2xl text-[#ffd24a]">UI</span>
+          <GlowWrapper borderRadius="1rem">
+            <div className="text-center p-6 w-full h-full" data-cursor="hover">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
+                <span className="font-display text-2xl text-[#ffd24a]">UI</span>
+              </div>
+              <h4 className="font-display text-lg text-white mb-2">Modern Frontend</h4>
+              <p className="text-sm text-[#a0a0a0]">Responsive, accessible, and performant interfaces</p>
             </div>
-            <h4 className="font-display text-lg text-white mb-2">Modern Frontend</h4>
-            <p className="text-sm text-[#a0a0a0]">Responsive, accessible, and performant interfaces</p>
-          </div>
+          </GlowWrapper>
         </div>
       </div>
 

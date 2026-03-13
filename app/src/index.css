@@ -49,6 +49,14 @@
     @apply bg-[#0f0f0f] text-white antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     overflow-x: hidden;
+    cursor: none !important;
+  }
+
+  /* Hide cursor on all links and buttons for desktop */
+  @media (min-width: 1024px) {
+    a, button, [data-cursor] {
+      cursor: none !important;
+    }
   }
   
   html.lenis, html.lenis body {
@@ -165,6 +173,40 @@
   border-color: rgba(255, 210, 74, 0.4);
   box-shadow: 0 0 30px rgba(255, 210, 74, 0.1);
 }
+
+/* Glow Card Effect */
+.glow-card {
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+  position: relative;
+  border-radius: inherit;
+}
+
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 210, 74, 0.4),
+    transparent 40%
+  );
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+.glow-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 /* Project card */
 .project-card {
@@ -300,3 +342,18 @@ canvas {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 210, 74, 0.3), transparent);
 }
+
+/* Reveal Text Effect */
+.reveal-text-container {
+  cursor: none;
+}
+
+.reveal-char {
+  display: inline-block;
+  transition: transform 0.15s ease-out;
+}
+
+.reveal-text-container:hover .reveal-char {
+  /* Subtle lift on hover container */
+}
+
