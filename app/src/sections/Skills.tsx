@@ -72,11 +72,11 @@ const Skills = () => {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 lg:py-40 bg-[#0f0f0f]"
+      className="relative w-full py-24 md:py-32 lg:py-40 bg-bg-primary"
     >
       {/* Background accents */}
-      <div className="absolute top-1/2 left-0 w-1/4 h-1/2 -translate-y-1/2 bg-gradient-to-r from-[#ffd24a]/5 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tl from-[#ffd24a]/5 to-transparent pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-1/4 h-1/2 -translate-y-1/2 bg-gradient-to-r from-accent-soft/5 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tl from-accent-maroon/5 to-transparent pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -99,21 +99,21 @@ const Skills = () => {
               <GlowWrapper key={category.id} borderRadius="1rem" className="h-full">
                 <div
                   data-cursor="hover"
-                  className="skill-category group relative p-6 md:p-8 bg-[#151515] rounded-2xl border border-white/5 overflow-hidden w-full h-full"
+                  className="skill-category group relative p-6 md:p-8 glass-panel glass-panel-hover rounded-2xl overflow-hidden w-full h-full"
                 >
                   {/* Hover gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-soft/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#ffd24a]/10 to-transparent rounded-bl-full opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-accent-soft/10 to-transparent rounded-bl-full opacity-50 group-hover:opacity-100 transition-opacity" />
                   
                   <div className="relative z-10">
                     {/* Header */}
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 text-[#ffd24a]" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="w-6 h-6 text-accent-soft" />
                       </div>
-                      <h3 className="font-display text-xl md:text-2xl text-white group-hover:text-[#ffd24a] transition-colors">
+                      <h3 className="font-display text-xl md:text-2xl text-white group-hover:text-accent-soft transition-colors">
                         {category.title}
                       </h3>
                     </div>
@@ -140,8 +140,8 @@ const Skills = () => {
         <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <GlowWrapper borderRadius="1rem">
             <div className="text-center p-6 w-full h-full" data-cursor="hover">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-                <span className="font-display text-2xl text-[#ffd24a]">AI</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center">
+                <span className="font-display text-2xl text-accent-soft">AI</span>
               </div>
               <h4 className="font-display text-lg text-white mb-2">Machine Learning</h4>
               <p className="text-sm text-[#a0a0a0]">Building intelligent systems with modern ML frameworks</p>
@@ -150,8 +150,8 @@ const Skills = () => {
           
           <GlowWrapper borderRadius="1rem">
             <div className="text-center p-6 w-full h-full" data-cursor="hover">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-                <span className="font-display text-2xl text-[#ffd24a]">API</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center">
+                <span className="font-display text-2xl text-accent-soft">API</span>
               </div>
               <h4 className="font-display text-lg text-white mb-2">Backend Systems</h4>
               <p className="text-sm text-[#a0a0a0]">Scalable APIs and microservices architecture</p>
@@ -160,8 +160,8 @@ const Skills = () => {
           
           <GlowWrapper borderRadius="1rem">
             <div className="text-center p-6 w-full h-full" data-cursor="hover">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-                <span className="font-display text-2xl text-[#ffd24a]">UI</span>
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center">
+                <span className="font-display text-2xl text-accent-soft">UI</span>
               </div>
               <h4 className="font-display text-lg text-white mb-2">Modern Frontend</h4>
               <p className="text-sm text-[#a0a0a0]">Responsive, accessible, and performant interfaces</p>

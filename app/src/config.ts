@@ -102,6 +102,7 @@ export interface Project {
   githubUrl: string;
   demoUrl?: string;
   featured: boolean;
+  category: 'featured' | 'hackathon' | 'college' | 'small';
 }
 
 export interface ProjectsConfig {
@@ -112,39 +113,34 @@ export interface ProjectsConfig {
 
 export const projectsConfig: ProjectsConfig = {
   sectionLabel: "Projects",
-  sectionTitle: "Featured Work",
+  sectionTitle: "My Work",
   projects: [
     {
       id: 1,
       title: "MediSync — AI Agentic Pharmaceutical System",
-      description: "AI-powered pharmaceutical automation system using specialized agents to analyze prescriptions, detect risks, and automate workflows. Built during a hackathon to demonstrate agent-based AI.",
-      techStack: ["Python", "FastAPI", "LangGraph", "LangChain", "React", "SQLite", "Docker", "AI APIs"],
+      description: "AI-powered pharmaceutical automation system built during a hackathon. Coordinates specialized agents via LangGraph to analyze complex medical prescriptions, detect potential drug risks, and streamline medical checkups.",
+      techStack: ["Python", "FastAPI", "LangGraph", "LangChain", "React", "SQLite", "Gemini API"],
       githubUrl: "https://github.com/GhananilShirpurkar/Medisync",
-      featured: true,
+      featured: false,
+      category: "hackathon",
     },
     {
       id: 2,
-      title: "Fake News Detection System — NLP ML Model",
-      description: "Machine learning system that detects misinformation using NLP. Converts text into numerical features via TF-IDF and applies classification models like Logistic Regression and Naive Bayes.",
-      techStack: ["Python", "Scikit-learn", "TF-IDF", "Pandas", "NumPy", "CustomTkinter", "Matplotlib"],
-      githubUrl: "https://github.com/GhananilShirpurkar/Fake-News-Detector",
-      featured: true,
+      title: "Hostel Attendance System — Face Detection Edge",
+      description: "Edge-based smart hostel attendance system using local face recognition frame captures, trained via a local edge loop, and reporting completed logs to a central database.",
+      techStack: ["Python", "OpenCV", "Scikit-learn", "Supabase", "PostgreSQL", "React"],
+      githubUrl: "https://github.com/AniketSomankar-18/face_recognition_hostel_attendance_v2",
+      featured: false,
+      category: "college",
     },
     {
       id: 3,
-      title: "Job & Course Recommendation",
-      description: "In Progress: ML recommendation system that analyzes user profiles, interests, and skills to suggest relevant career paths and learning opportunities.",
-      techStack: ["Python", "Scikit-learn", "Pandas"],
-      githubUrl: "https://github.com/GhananilShirpurkar",
+      title: "Fake News Detection System — NLP ML Model",
+      description: "A natural language processing classifier that identifies misinformation and fake news. Features a robust TF-IDF vectorization pipeline combined with classification models like Logistic Regression.",
+      techStack: ["Python", "Scikit-learn", "TF-IDF", "Pandas", "NumPy", "CustomTkinter"],
+      githubUrl: "https://github.com/GhananilShirpurkar/Fake-News-Detector",
       featured: false,
-    },
-    {
-      id: 4,
-      title: "AI Tutor",
-      description: "Planned: AI-powered learning assistant that allows students to upload study materials and interact with an intelligent tutor to get explanations and summaries.",
-      techStack: ["Python", "LangChain", "OpenAI"],
-      githubUrl: "https://github.com/GhananilShirpurkar",
-      featured: false,
+      category: "small",
     },
   ],
 };

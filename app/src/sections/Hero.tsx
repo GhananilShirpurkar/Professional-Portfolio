@@ -124,7 +124,7 @@ function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative w-full min-h-screen overflow-hidden bg-[#0f0f0f]"
+      className="relative w-full min-h-screen overflow-hidden bg-bg-primary"
     >
       {/* Animated background gradient */}
       <div className="absolute inset-0 z-0">
@@ -133,33 +133,33 @@ function Hero() {
         {/* Floating shapes */}
         <div ref={shapesRef} className="absolute inset-0 overflow-hidden">
           {/* Large circle */}
-          <div className="floating-shape absolute -top-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-[#ffd24a]/10 to-transparent blur-3xl" />
+          <div className="floating-shape absolute -top-20 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-accent-maroon/20 to-transparent blur-3xl" />
           
           {/* Small circle */}
-          <div className="floating-shape-delayed absolute top-1/3 -left-32 w-64 h-64 rounded-full bg-gradient-to-br from-[#ffd24a]/5 to-transparent blur-3xl" />
+          <div className="floating-shape-delayed absolute top-1/3 -left-32 w-64 h-64 rounded-full bg-gradient-to-br from-accent-soft/10 to-transparent blur-3xl" />
           
           {/* Bottom glow */}
-          <div className="floating-shape absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-[#ffd24a]/5 to-transparent blur-3xl" />
+          <div className="floating-shape absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-accent-maroon/10 to-transparent blur-3xl" />
           
           {/* Grid pattern */}
           <div 
             className="absolute inset-0 opacity-[0.03]"
             style={{
-              backgroundImage: `linear-gradient(rgba(255, 210, 74, 0.5) 1px, transparent 1px),
-                               linear-gradient(90deg, rgba(255, 210, 74, 0.5) 1px, transparent 1px)`,
+              backgroundImage: `linear-gradient(rgba(176, 137, 104, 0.15) 1px, transparent 1px),
+                               linear-gradient(90deg, rgba(176, 137, 104, 0.15) 1px, transparent 1px)`,
               backgroundSize: '60px 60px',
             }}
           />
         </div>
         
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0f0f0f]/50 to-[#0f0f0f]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg-primary/50 to-bg-primary" />
       </div>
 
       {/* Navigation pill */}
       <nav
         ref={navRef}
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 nav-pill rounded-full px-2 py-2 hidden md:block"
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass-panel rounded-full px-2 py-2 hidden md:block"
       >
         <div className="flex items-center gap-1">
           {heroConfig.navItems.map((item) => {
@@ -168,7 +168,7 @@ function Hero() {
               <GlowWrapper key={item.sectionId} className="rounded-full">
                 <button
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="flex items-center gap-2 px-4 py-2 text-xs font-mono-custom uppercase tracking-wider text-white/70 hover:text-[#ffd24a] transition-colors rounded-full hover:bg-white/5"
+                  className="flex items-center gap-2 px-4 py-2 text-xs font-mono-custom uppercase tracking-wider text-white/70 hover:text-accent-soft transition-colors rounded-full hover:bg-white/5"
                 >
                   <IconComponent className="w-3.5 h-3.5" />
                   <span>{item.label}</span>
@@ -180,7 +180,7 @@ function Hero() {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 nav-pill rounded-full px-4 py-3 md:hidden">
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel rounded-full px-4 py-3 md:hidden">
         <div className="flex items-center gap-4">
           {heroConfig.navItems.map((item) => {
             const IconComponent = ICON_MAP[item.icon];
@@ -188,7 +188,7 @@ function Hero() {
               <button
                 key={item.sectionId}
                 onClick={() => scrollToSection(item.sectionId)}
-                className="text-white/70 hover:text-[#ffd24a] transition-colors"
+                className="text-white/70 hover:text-accent-soft transition-colors"
               >
                 <IconComponent className="w-5 h-5" />
               </button>
@@ -202,8 +202,8 @@ function Hero() {
         {/* Logo / Brand */}
         <div className="absolute top-8 left-8">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center">
-              <span className="font-display text-lg text-[#ffd24a]">{heroConfig.brandName}</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center">
+              <span className="font-display text-lg text-accent-soft">{heroConfig.brandName}</span>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@ function Hero() {
           {/* Role badge */}
           <p
             ref={roleRef}
-            className="font-mono-custom text-xs md:text-sm text-[#ffd24a] uppercase tracking-[0.3em] mb-6 opacity-0"
+            className="font-mono-custom text-xs md:text-sm text-accent-soft uppercase tracking-[0.3em] mb-6 opacity-0"
           >
             {heroConfig.role}
           </p>
@@ -224,7 +224,7 @@ function Hero() {
             className="decode-text text-[8vw] md:text-[6vw] lg:text-[5vw] font-bold text-white leading-none tracking-tighter mb-8"
           >
             {isDecoding ? (
-              <span className="text-glow-gold transition-all duration-300">
+              <span className="text-glow-gold text-accent-soft transition-all duration-300">
                 {displayText}
               </span>
             ) : (
@@ -249,7 +249,7 @@ function Hero() {
             <GlowWrapper className="rounded-full">
               <button
                 onClick={() => scrollToSection(heroConfig.ctaPrimaryTarget)}
-                className="group flex items-center justify-center gap-2 px-8 py-4 bg-[#ffd24a] text-[#0f0f0f] font-display text-sm uppercase tracking-wider rounded-full hover:bg-[#ffe17a] transition-all duration-300 btn-glow"
+                className="group flex items-center justify-center gap-2 px-8 py-4 bg-accent-soft text-bg-primary font-display text-sm uppercase tracking-wider rounded-full hover:bg-cream transition-all duration-300 btn-glow"
               >
                 {heroConfig.ctaPrimary}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -258,7 +258,7 @@ function Hero() {
             <GlowWrapper className="rounded-full">
               <button
                 onClick={() => window.open('/resume.pdf', '_blank')}
-                className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-[#ffd24a] hover:text-[#ffd24a] transition-all duration-300"
+                className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-accent-soft hover:text-accent-soft transition-all duration-300"
               >
                 <Download className="w-4 h-4" />
                 {heroConfig.ctaSecondary}
@@ -267,7 +267,7 @@ function Hero() {
             <GlowWrapper className="rounded-full">
               <button
                 onClick={() => scrollToSection(heroConfig.ctaTertiaryTarget)}
-                className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-[#ffd24a] hover:text-[#ffd24a] transition-all duration-300"
+                className="group flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-display text-sm uppercase tracking-wider rounded-full hover:border-accent-soft hover:text-accent-soft transition-all duration-300"
               >
                 {heroConfig.ctaTertiary}
               </button>
@@ -278,12 +278,12 @@ function Hero() {
         {/* Scroll indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="font-mono-custom text-xs text-[#a0a0a0] uppercase tracking-wider">Scroll</span>
-          <div className="w-px h-12 bg-gradient-to-b from-[#ffd24a]/50 to-transparent" />
+          <div className="w-px h-12 bg-gradient-to-b from-accent-soft/50 to-transparent" />
         </div>
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#ffd24a]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-soft/30 to-transparent" />
     </section>
   );
 };

@@ -134,13 +134,13 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 lg:py-40 bg-[#0f0f0f]"
+      className="relative w-full py-24 md:py-32 lg:py-40 bg-bg-primary"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f] via-[#111111] to-[#0f0f0f] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-bg-surface to-bg-primary pointer-events-none" />
       
       {/* Top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-[#ffd24a]/5 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-accent-soft/5 to-transparent blur-3xl pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -161,8 +161,8 @@ const Contact = () => {
             {/* Contact details */}
             <div className="space-y-6">
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Mail className="w-5 h-5 text-[#ffd24a]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Mail className="w-5 h-5 text-accent-soft" />
                 </div>
                 <div>
                   <p className="text-sm text-[#a0a0a0] mb-1">Private Contact</p>
@@ -171,14 +171,14 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Phone className="w-5 h-5 text-[#ffd24a]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Phone className="w-5 h-5 text-accent-soft" />
                 </div>
                 <div>
                   <p className="text-sm text-[#a0a0a0] mb-1">Phone</p>
                   <a 
                     href={`tel:${contactConfig.phone}`}
-                    className="text-white hover:text-[#ffd24a] transition-colors"
+                    className="text-white hover:text-accent-soft transition-colors"
                   >
                     {contactConfig.phone}
                   </a>
@@ -186,8 +186,8 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffd24a]/20 to-[#ffd24a]/5 border border-[#ffd24a]/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <MapPin className="w-5 h-5 text-[#ffd24a]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-soft/20 to-accent-soft/5 border border-accent-soft/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <MapPin className="w-5 h-5 text-accent-soft" />
                 </div>
                 <div>
                   <p className="text-sm text-[#a0a0a0] mb-1">Location</p>
@@ -208,7 +208,7 @@ const Contact = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-white/60 hover:text-[#ffd24a] hover:border-[#ffd24a]/30 hover:bg-[#ffd24a]/5 transition-all duration-300"
+                      className="group flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-white/60 hover:text-accent-soft hover:border-accent-soft/30 hover:bg-accent-soft/5 transition-all duration-300"
                       aria-label={link.label}
                     >
                       <IconComponent className="w-5 h-5" />
@@ -219,10 +219,10 @@ const Contact = () => {
             </div>
 
             {/* Quick response note */}
-            <div className="p-6 bg-[#151515] rounded-2xl border border-white/5">
+            <div className="p-6 glass-panel rounded-2xl">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[#ffd24a]/10 flex items-center justify-center flex-shrink-0">
-                  <Send className="w-5 h-5 text-[#ffd24a]" />
+                <div className="w-10 h-10 rounded-lg bg-accent-soft/10 flex items-center justify-center flex-shrink-0">
+                  <Send className="w-5 h-5 text-accent-soft" />
                 </div>
                 <div>
                   <h4 className="font-display text-white mb-2">Quick Response</h4>
@@ -235,7 +235,7 @@ const Contact = () => {
           </div>
 
           {/* Right side - Contact form */}
-          <div className="bg-[#151515] rounded-2xl border border-white/5 p-6 md:p-8">
+          <div className="glass-panel rounded-2xl p-6 md:p-8">
             <h3 className="font-display text-xl text-white mb-2">{contactConfig.formTitle}</h3>
             <p className="text-sm text-[#a0a0a0] mb-8">{contactConfig.formDescription}</p>
 
@@ -261,7 +261,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-[#ffd24a]/50 input-focus transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-accent-soft/50 input-focus transition-all"
                   placeholder="John Doe"
                 />
               </div>
@@ -278,7 +278,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-[#ffd24a]/50 input-focus transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-accent-soft/50 input-focus transition-all"
                   placeholder="john@example.com"
                 />
               </div>
@@ -295,7 +295,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-[#ffd24a]/50 input-focus transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-accent-soft/50 input-focus transition-all resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -304,13 +304,13 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full flex items-center justify-center gap-2 px-8 py-4 bg-[#ffd24a] text-[#0f0f0f] font-display text-sm uppercase tracking-wider rounded-xl transition-all duration-300 btn-glow ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#ffe17a]'
+                className={`w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent-soft text-bg-primary font-display text-sm uppercase tracking-wider rounded-xl transition-all duration-300 btn-glow ${
+                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-cream'
                 }`}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-[#0f0f0f]/30 border-t-[#0f0f0f] rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-bg-primary/30 border-t-bg-primary rounded-full animate-spin" />
                     <span>Sending...</span>
                   </>
                 ) : submitted ? (

@@ -39,6 +39,14 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         // Custom theme colors
+        'bg-primary': 'var(--bg-primary)',
+        'bg-surface': 'var(--bg-surface)',
+        'accent-maroon': 'var(--accent-maroon)',
+        'accent-soft': 'var(--accent-soft)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'border-subtle': 'var(--border-subtle)',
+        'cream': 'var(--cream)',
         void: {
           black: '#050508',
           dark: '#0A0A0F',

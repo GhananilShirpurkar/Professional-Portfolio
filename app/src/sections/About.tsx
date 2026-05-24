@@ -100,10 +100,10 @@ const About = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 lg:py-40 bg-[#0f0f0f]"
+      className="relative w-full py-24 md:py-32 lg:py-40 bg-bg-primary"
     >
       {/* Background accent */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#ffd24a]/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent-soft/5 to-transparent pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -113,7 +113,7 @@ const About = () => {
             {aboutConfig.sectionTitle}
           </h2>
         </div>
-
+ 
         {/* Two column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left side - Bio */}
@@ -129,23 +129,23 @@ const About = () => {
             
             {/* Decorative line */}
             <div className="pt-6">
-              <div className="w-20 h-1 bg-gradient-to-r from-[#ffd24a] to-transparent rounded-full" />
+              <div className="w-20 h-1 bg-gradient-to-r from-accent-soft to-transparent rounded-full" />
             </div>
           </div>
-
+ 
           {/* Right side - Stats */}
           <div ref={statsRef} className="grid grid-cols-2 gap-4 md:gap-6">
             {aboutConfig.stats.map((stat) => (
               <GlowWrapper key={stat.id} borderRadius="1rem" className="h-full">
                 <div
                   data-cursor="hover"
-                  className="stat-card relative p-6 md:p-8 bg-[#151515] rounded-2xl border border-white/5 overflow-hidden group w-full h-full"
+                  className="stat-card relative p-6 md:p-8 glass-panel glass-panel-hover rounded-2xl overflow-hidden group w-full h-full"
                 >
                   {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffd24a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-soft/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Corner accent */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[#ffd24a]/10 to-transparent rounded-bl-full shadow-lg" />
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-accent-soft/10 to-transparent rounded-bl-full shadow-lg" />
                   
                   <div className="relative z-10">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />

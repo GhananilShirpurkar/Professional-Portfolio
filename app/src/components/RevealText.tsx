@@ -94,8 +94,8 @@ const RevealText: React.FC<RevealTextProps> = ({
         style={{
           WebkitMaskImage: isHovering ? maskStyle : 'radial-gradient(circle 0px at 0px 0px, transparent 100%)',
           maskImage: isHovering ? maskStyle : 'radial-gradient(circle 0px at 0px 0px, transparent 100%)',
-          color: '#ffd24a',
-          textShadow: '0 0 20px rgba(255, 210, 74, 0.8), 0 0 40px rgba(255, 210, 74, 0.4), 0 0 60px rgba(255, 210, 74, 0.2)',
+          color: '#b08968',
+          textShadow: '0 0 20px rgba(176, 137, 104, 0.8), 0 0 40px rgba(176, 137, 104, 0.4), 0 0 60px rgba(176, 137, 104, 0.2)',
         }}
       >
         {hiddenText}
@@ -110,7 +110,7 @@ const RevealText: React.FC<RevealTextProps> = ({
             height: revealRadius * 2,
             left: mousePos.x - revealRadius,
             top: mousePos.y - revealRadius,
-            background: 'radial-gradient(circle, rgba(255, 210, 74, 0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(176, 137, 104, 0.08) 0%, transparent 70%)',
             transition: 'left 0.05s linear, top 0.05s linear',
           }}
         />

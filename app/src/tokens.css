@@ -1,0 +1,294 @@
+/* ============================================================================
+   EXCALIBUR DESIGN TOKENS
+   Sacred Minimalism with Divine Light
+   ============================================================================ */
+
+:root {
+  /* ========== COLOR PALETTE ========== */
+  /* Background: Near-black with cold blue-grey undertone */
+  --color-bg-primary: #0a0c10;
+  --color-bg-secondary: #0f1117;
+  --color-bg-surface: #1e2330;
+
+  /* Primary Accent: Sovereign Gold (aged, metallic, restrained) */
+  --color-gold: #c9a84c;
+  --color-gold-light: #dab868;
+  --color-gold-dark: #a88e3a;
+
+  /* Secondary Accent: Holy white-silver (radiance, not decoration) */
+  --color-white-radiance: #e8e8f0;
+  --color-white-pure: #ffffff;
+
+  /* Text Colors */
+  --color-text-primary: #d4d0c8; /* warm off-white */
+  --color-text-secondary: #a0a0a0; /* muted grey */
+  --color-text-tertiary: #707070; /* secondary grey */
+
+  /* Structural */
+  --color-border: rgba(201, 168, 76, 0.2); /* gold at 20% opacity */
+  --color-border-dark: rgba(255, 255, 255, 0.05);
+
+  /* ========== TYPOGRAPHY ========== */
+  /* Display Font: Cinzel (imported in index.css) */
+  --font-display: "Cinzel", serif;
+  --font-display-weight: 400;
+  --font-display-weight-bold: 700;
+
+  /* Body Font: Inter or system-ui */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-body-weight: 400;
+  --font-body-weight-medium: 500;
+  --font-body-weight-bold: 600;
+
+  /* Monospace for code/tags */
+  --font-mono: "JetBrains Mono", "Monaco", "Courier New", monospace;
+
+  /* ========== TYPOGRAPHY SCALE ========== */
+  /* Headings */
+  --type-h1-size: clamp(2rem, 8vw, 3.5rem);
+  --type-h1-line-height: 1.1;
+  --type-h1-letter-spacing: -0.02em;
+
+  --type-h2-size: clamp(1.75rem, 6vw, 3rem);
+  --type-h2-line-height: 1.2;
+  --type-h2-letter-spacing: -0.01em;
+
+  --type-h3-size: clamp(1.25rem, 4vw, 1.875rem);
+  --type-h3-line-height: 1.3;
+  --type-h3-letter-spacing: 0;
+
+  /* Body */
+  --type-body-size: 1rem;
+  --type-body-line-height: 1.6;
+  --type-body-letter-spacing: 0;
+
+  --type-body-sm-size: 0.875rem;
+  --type-body-sm-line-height: 1.5;
+
+  /* Labels / Caps */
+  --type-label-size: 0.75rem;
+  --type-label-line-height: 1.5;
+  --type-label-letter-spacing: 0.15em;
+
+  /* ========== SPACING ========== */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
+  --space-3xl: 3rem;
+  --space-4xl: 4rem;
+
+  /* ========== BORDERS ========== */
+  --border-thin: 1px;
+  --border-med: 2px;
+  --border-thick: 3px;
+  --border-radius-none: 0;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+
+  /* ========== SHADOWS ========== */
+  /* None - using borders instead */
+  --shadow-none: none;
+
+  /* ========== ANIMATION ========== */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slowest: 800ms;
+
+  --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-out: cubic-bezier(0.0, 0, 0.2, 1);
+  --easing-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* GSAP Easing References */
+  --gsap-ease-power2-out: power2.out;
+  --gsap-ease-power3-out: power3.out;
+
+  /* ========== Z-INDEX SCALE ========== */
+  --z-base: 0;
+  --z-elements: 10;
+  --z-dropdown: 20;
+  --z-sticky: 30;
+  --z-fixed: 40;
+  --z-modal: 50;
+  --z-tooltip: 60;
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+
+/* Display Typography */
+.type-h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-h1-size);
+  font-weight: var(--font-display-weight-bold);
+  line-height: var(--type-h1-line-height);
+  letter-spacing: var(--type-h1-letter-spacing);
+  color: var(--color-white-radiance);
+}
+
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: var(--type-h2-size);
+  font-weight: var(--font-display-weight-bold);
+  line-height: var(--type-h2-line-height);
+  letter-spacing: var(--type-h2-letter-spacing);
+  color: var(--color-white-radiance);
+}
+
+.type-h3 {
+  font-family: var(--font-display);
+  font-size: var(--type-h3-size);
+  font-weight: var(--font-display-weight);
+  line-height: var(--type-h3-line-height);
+  letter-spacing: var(--type-h3-letter-spacing);
+  color: var(--color-white-radiance);
+}
+
+.type-body {
+  font-family: var(--font-body);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+.type-body-sm {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--type-body-sm-line-height);
+  color: var(--color-text-secondary);
+}
+
+.type-label {
+  font-family: var(--font-body);
+  font-size: var(--type-label-size);
+  font-weight: var(--font-body-weight-bold);
+  line-height: var(--type-label-line-height);
+  letter-spacing: var(--type-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* Thin Ruled Line (divider) */
+.line-divider {
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.line-divider-vertical {
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+/* Radial Glow (hero light effect) */
+.glow-radial-hero {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    circle at center,
+    rgba(232, 232, 240, 0.15) 0%,
+    rgba(201, 168, 76, 0.05) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+/* Border Accent */
+.border-left-gold {
+  border-left: 1px solid var(--color-gold);
+}
+
+.border-left-gold-muted {
+  border-left: 1px solid var(--color-border);
+}
+
+.border-bottom-gold {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Interactive Button Base */
+.btn-base {
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: var(--font-display-weight);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: all var(--duration-normal) ease;
+  background: none;
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: #000;
+  border-color: var(--color-gold);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border-dark);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* Link with Underline */
+.link-underline {
+  position: relative;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color var(--duration-normal) ease, 
+              color var(--duration-normal) ease;
+}
+
+.link-underline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* Skill Underline */
+.skill-underline {
+  border-bottom: 1px solid var(--color-text-tertiary);
+  transition: border-color var(--duration-normal) ease;
+}
+
+.skill-underline:hover {
+  border-color: var(--color-gold);
+}
+
+/* Accessibility: Focus Ring */
+.focus-ring:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
